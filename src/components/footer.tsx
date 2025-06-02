@@ -36,7 +36,7 @@ export default function Footer() {
           <p className="text-white">Etika në veprim, bashkë për ndryshim.</p>
         </div>
 
-        <div className="flex justify-center gap-x-5 text-sm flex-wrap">
+        <div className="flex  gap-x-5 text-sm flex-wrap">
           {navItems.map((item) => {
             const isActive = pathname?.startsWith(item.href);
 
@@ -66,7 +66,7 @@ export default function Footer() {
       <hr className="border-white/20 my-4" />
 
       <div className="flex items-center justify-between container">
-        <div className="flex text-sm items-center justify-center gap-1 font-extralight">
+        <div className="flex text-sm md:items-center justify-center gap-1 font-extralight">
           <Copyright size={14} />
           <p>
             {currentYear} Klubi i Etikës. Të gjitha të drejtat janë të

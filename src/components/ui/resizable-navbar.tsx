@@ -153,7 +153,6 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
     <motion.div
       animate={{
         width: "100%",
-        y: visible ? 20 : 0,
       }}
       transition={{
         type: "spring",

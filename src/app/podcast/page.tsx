@@ -1,3 +1,5 @@
+import Card from "@/components/card";
+import PagesHeroSection from "@/components/pages-hero-section";
 import { getTrpcCaller } from "@/lib/trpc/server";
 import { PageParams } from "@/types";
 import { Metadata } from "next";
@@ -18,14 +20,26 @@ const Podcast = async ({ searchParams }: PageParams) => {
     search,
   });
   return (
-    <div className="container flex flex-col h-full items-center justify-center">
-      {podcasts.map((podcast) => {
-        return (
-          <Link href={`/podcast/${podcast.slug}`} key={podcast.slug}>
-            {podcast.title}
-          </Link>
-        );
-      })}
+    <div className="">
+      <PagesHeroSection
+        imagePath="/images/podcast-bg.jpg"
+        pageTitle="Podcast"
+        description="Dëgjo podcast-et tona ku trajtojmë tema etike, intervista me të ftuar dhe biseda frymëzuese."
+      />
+      <div className="container max-w-[1200px]  py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">
+        {podcasts.map((podcast) => {
+          return (
+            <Card
+              key={podcast.slug}
+              tags={podcast.tags}
+              title={podcast.title}
+              slug={podcast.slug}
+              module={"podcast"}
+              coverImagePath={podcast.coverImagePath}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

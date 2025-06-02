@@ -1,5 +1,6 @@
 import { ActivityById } from "@/interfaces/activity-by-id.interface";
 import { Activity } from "@/interfaces/activity.interface";
+import { PodcastById } from "@/interfaces/podcast-by-id.interface";
 import { Project } from "@/interfaces/project.interface";
 import { TopActivity } from "@/interfaces/top-activity.interface";
 import { TopPodcast } from "@/interfaces/top-podcast.interface";
@@ -58,7 +59,7 @@ export const publicRouter = createTRPCRouter({
     .input((input) => input as QueryParams | undefined)
     .query(async ({ input }) => {
       const response = await request<TopProject[]>(
-        "public/top-latest-activities",
+        "public/top-latest-projects",
         {
           method: "GET",
           next: { tags: ["top-latest-projects"] },
@@ -89,7 +90,7 @@ export const publicRouter = createTRPCRouter({
   getPodcast: publicProcedure
     .input((input) => input as string)
     .query(async ({ input }) => {
-      const response = await request<ActivityById>(`public/podcasts/${input}`, {
+      const response = await request<PodcastById>(`public/podcasts/${input}`, {
         method: "GET",
         next: { tags: [`podcasts-${input}`] },
       });

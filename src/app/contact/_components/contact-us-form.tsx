@@ -52,7 +52,7 @@ export function ContactUsForm({
   return (
     <Form {...form}>
       <form
-        className={cn("flex flex-col gap-6 max-w-sm", className)}
+        className={cn("flex flex-col gap-6", className)}
         onSubmit={form.handleSubmit(formSubmitHandler)}
         {...props}
       >

@@ -1,3 +1,5 @@
+import Card from "@/components/card";
+import PagesHeroSection from "@/components/pages-hero-section";
 import { getTrpcCaller } from "@/lib/trpc/server";
 import { PageParams } from "@/types";
 import { Metadata } from "next";
@@ -18,14 +20,27 @@ const Projects = async ({ searchParams }: PageParams) => {
     search,
   });
   return (
-    <div className="container flex items-center justify-center h-full">
-      {projects.map((project) => {
-        return (
-          <Link href={`/projects/${project.slug}`} key={project.slug}>
-            {project.title}
-          </Link>
-        );
-      })}
+    <div className="">
+      <PagesHeroSection
+        imagePath="/images/about-bg.jpg"
+        pageTitle="Projektet"
+        description="Njihuni me projektet tona që synojnë të sjellin ndryshim real në universitet dhe komunitet."
+        imageClassName="object-left"
+      />
+      <div className="container max-w-[1200px]  py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">
+        {projects.map((project) => {
+          return (
+            <Card
+              key={project.slug}
+              tags={project.tags}
+              title={project.title}
+              slug={project.slug}
+              module={"projects"}
+              coverImagePath={project.coverImagePath}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

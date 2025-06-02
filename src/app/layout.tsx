@@ -32,7 +32,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={` ${plusJakartaSans.variable} antialiased relative`}>
         <Providers user={null}>
-          <div className="h-dvh pt-20">
+          <div className="h-dvh ">
             <Header />
             {children}
             <Footer />

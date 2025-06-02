@@ -8,4 +8,5 @@ export interface Activity {
   shortDescription: string;
   tags: string[];
   finishedAt: string;
+  coverImagePath: string;
 }
