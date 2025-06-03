@@ -1,3 +1,4 @@
+import { HeroImageGallery } from "@/components/magicui/hero-image-gallery";
 import ShareLink from "@/components/share-link";
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/config/globals.config";
@@ -26,6 +27,7 @@ const Activity = async ({ params }: PageParams) => {
   const { slug } = await params;
   const trpc = await getTrpcCaller();
   const activity = await trpc.public.getActivity(slug);
+
   /**
    * @decoded_content
    */
@@ -38,7 +40,7 @@ const Activity = async ({ params }: PageParams) => {
           alt={`Projekti: ${activity.title}`}
           width={1280}
           height={800}
-          className="h-full w-full bg-gradient-to-b from-transparent to-black object-cover object-top"
+          className="h-full w-full bg-gradient-to-b from-transparent to-black object-cover object-top brightness-50"
         />
         <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-transparent to-black">
           <div className="container absolute bottom-4 left-1/2 max-w-[1100px] -translate-x-1/2 transform text-white md:bottom-6 xl:bottom-8">
@@ -61,7 +63,16 @@ const Activity = async ({ params }: PageParams) => {
           </div>
         </div>
       </div>
-      <div className="max-w-[1100px] mt-4 container flex flex-row space-x-1.5 text-xs font-semibold">
+      <div className="container max-w-[1100px] mt-8 mb-4">
+        <HeroImageGallery
+          images={activity.activityImagesPaths}
+          thumbnailSrc={activity.coverImagePath}
+          thumbnailAlt="Gallery thumbnail"
+          animationStyle="from-center"
+          className="mx-auto "
+        />
+      </div>
+      <div className="max-w-[1100px]  container flex flex-row space-x-1.5 text-xs font-semibold">
         {activity.tags.map((tag, index) => (
           <span
             key={index}

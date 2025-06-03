@@ -1,3 +1,4 @@
+import { HeroVideoDialog } from "@/components/magicui/hero-video-dialog";
 import ShareLink from "@/components/share-link";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
@@ -86,18 +87,22 @@ const Podcast = async ({ params }: PageParams) => {
       </div>
 
       <div className="container mb-8 mt-4 max-w-[1100px]">
-        {/* If we have a valid YouTube embed URL, render it responsively */}
-        {embedUrl && (
-          <div className="relative h-[180px]  md:h-[250px] -mt-6 mb-6 md:-mt-8   flex items-center justify-center">
-            <iframe
-              className="absolute top-0 left-0 w-[350px] aspect-[16/9] border border-white md:w-[450px]"
-              src={embedUrl}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        )}
+        <div className="relative">
+          <HeroVideoDialog
+            className="block dark:hidden"
+            animationStyle="from-center"
+            videoSrc={embedUrl ?? ""}
+            thumbnailSrc={podcast.coverImagePath}
+            thumbnailAlt={podcast.title}
+          />
+          <HeroVideoDialog
+            className="hidden dark:block"
+            animationStyle="from-center"
+            videoSrc={embedUrl ?? ""}
+            thumbnailSrc={podcast.coverImagePath}
+            thumbnailAlt={podcast.title}
+          />
+        </div>
         <div className="my-4  flex flex-row space-x-1.5 text-xs font-semibold">
           {podcast.tags.map((tag, index) => (
             <span

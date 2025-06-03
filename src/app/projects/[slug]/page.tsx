@@ -1,3 +1,4 @@
+import Card from "@/components/card";
 import ShareLink from "@/components/share-link";
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/config/globals.config";
@@ -74,9 +75,53 @@ const Project = async ({ params }: PageParams) => {
         ))}
       </div>
       <div
-        className="container mb-8 mt-4 max-w-[1100px]"
+        className="container  mt-4 max-w-[1100px] "
         dangerouslySetInnerHTML={{ __html: decodedContent }}
       />
+      <div className="flex flex-col gap-10 pb-10 md:pb-20 container max-w-[1100px]">
+        {!!project.podcasts.length && (
+          <div className="py-4 md:py-8">
+            <h3 className="text-primary font-extrabold text-xl md:text-2xl mb-4 pb-4 border-b">
+              Podcastet e ndërlidhura me këtë projekt
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">
+              {project.podcasts.map((podcast) => {
+                return (
+                  <Card
+                    key={podcast.podcastSlug}
+                    tags={podcast.tags}
+                    title={podcast.title}
+                    slug={podcast.podcastSlug}
+                    module={"podcast"}
+                    coverImagePath={podcast.coverImagePath}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {!!project.activities.length && (
+          <div className="py-4 md:py-8">
+            <h3 className="text-primary font-extrabold text-xl md:text-2xl mb-4 pb-4 border-b">
+              Aktivitetet e ndërlidhura me këtë projekt
+            </h3>
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">
+              {project.activities.map((podcast) => {
+                return (
+                  <Card
+                    key={podcast.activitySlug}
+                    tags={podcast.tags}
+                    title={podcast.title}
+                    slug={podcast.activitySlug}
+                    module={"activities"}
+                    coverImagePath={podcast.coverImagePath}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
