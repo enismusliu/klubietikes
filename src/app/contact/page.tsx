@@ -15,7 +15,6 @@ const Contact = () => {
       <PagesHeroSection
         imagePath="/images/contact-bg.jpg"
         pageTitle="Kontakti"
-        description="Na kontakto për bashkëpunime, sugjerime apo për t’u bërë pjesë e klubit"
         imageClassName="object-left"
       />
       <div className="container max-w-[1200px] grid gap-10 md:gap-16 md:grid-cols-2 py-10 md:py-16">

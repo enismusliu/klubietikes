@@ -25,8 +25,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#403A6B] text-sm pb-4 pt-6 text-white">
-      <div className="flex justify-between items-end container gap-10 flex-wrap">
+    <footer className="bg-[#403A6B] text-sm pb-4 pt-6 text-white ">
+      <div className="flex justify-between items-end  gap-10 flex-wrap container ">
         <div className="flex flex-col items-start gap-y-3">
           <img
             src="/images/icon-white.png"
@@ -65,7 +65,7 @@ export default function Footer() {
 
       <hr className="border-white/20 my-4" />
 
-      <div className="flex items-center justify-between container">
+      <div className="flex items-center justify-between container ">
         <div className="flex text-sm md:items-center justify-center gap-1 font-extralight">
           <Copyright size={14} />
           <p>

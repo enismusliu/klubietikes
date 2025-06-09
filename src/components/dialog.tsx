@@ -19,7 +19,7 @@ import { useMediaQuery } from "usehooks-ts";
 
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "./ui/scroll-area";
-import { useDialogStore } from "stores/dialog.store";
+import { useDialogStore } from "@/stores/dialog.store";
 
 export default function Dialog() {
   /**

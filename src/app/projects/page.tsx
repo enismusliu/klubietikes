@@ -24,7 +24,6 @@ const Projects = async ({ searchParams }: PageParams) => {
       <PagesHeroSection
         imagePath="/images/about-bg.jpg"
         pageTitle="Projektet"
-        description="Njihuni me projektet tona që synojnë të sjellin ndryshim real në universitet dhe komunitet."
         imageClassName="object-left"
       />
       <div className="container max-w-[1200px]  py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">

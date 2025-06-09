@@ -1,8 +1,8 @@
 "use client";
 
 import { UserIdentity } from "@/interfaces/auth/authentication.interfaces";
+import { useUserStore } from "@/stores/user.store";
 import { PropsWithChildren, useEffect } from "react";
-import { useUserStore } from "stores/user.store";
 
 interface Props extends PropsWithChildren {
   data: UserIdentity | null;

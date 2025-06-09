@@ -1,12 +1,13 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -30,11 +31,13 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang={locale}>
-      <body className={` ${plusJakartaSans.variable} antialiased relative`}>
+      <body
+        className={` ${poppins.variable} antialiased relative font-poppins`}
+      >
         <Providers user={null}>
           <div className="h-dvh ">
             <Header />
-            {children}
+            <div className="pt-16">{children}</div>
             <Footer />
           </div>
         </Providers>

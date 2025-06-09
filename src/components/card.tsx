@@ -32,14 +32,14 @@ const Card = ({
         />
       </div>
       <div className="text content w-full ">
-        <p className="font-bold text-xl md:text-2xl truncate  mb-4">
+        <p className="font-bold text-xl md:text-2xl truncate  mb-3">
           {title.charAt(0).toUpperCase() + title.slice(1)}
         </p>
         <div className="flex flex-row space-x-1.5 text-xs font-semibold">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="border border-primary bg-white px-4 py-1 rounded-md text-primary"
+              className="border border-primary bg-white px-4 py-1 rounded-full text-primary"
             >
               {tag}
             </span>

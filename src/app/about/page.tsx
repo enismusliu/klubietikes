@@ -14,7 +14,6 @@ const About = () => {
       <PagesHeroSection
         imagePath="/images/about-bg.jpg"
         pageTitle="Rreth Nesh"
-        description="Mëso më shumë rreth misionit, vlerave dhe qëllimeve të Klubit të Etikës"
         imageClassName="object-left"
       />
       <div className="container max-w-[1200px]  py-10 md:py-16">

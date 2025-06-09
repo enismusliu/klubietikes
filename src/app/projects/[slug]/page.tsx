@@ -34,37 +34,35 @@ const Project = async ({ params }: PageParams) => {
    */
   const decodedContent = decodeURIComponent(project.htmlContentDescription);
   return (
-    <div>
-      <div className="relative h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] xl:h-[350px] 2xl:h-[370px]">
+    <div className="mt-5 container  max-w-6xl">
+      <div className="rounded-3xl  w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] xl:h-[350px] 2xl:h-[370px]">
         <img
           src={project.coverImagePath}
           alt={`Projekti: ${project.title}`}
           width={1280}
           height={800}
-          className="h-full w-full bg-gradient-to-b from-transparent to-black object-cover object-top"
+          className="h-full w-full rounded-3xl  to-black object-cover "
         />
-        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-transparent to-black">
-          <div className="container absolute bottom-4 left-1/2 max-w-[1100px] -translate-x-1/2 transform text-white md:bottom-6 xl:bottom-8">
-            <div className="flex items-center justify-between gap-3">
-              <h1 className="text-[20px] sm:text-[30px] xl:text-[35px]">
-                {project.title}
-              </h1>
-              <ShareLink title={project.title} text={decodedContent}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={cn(
-                    "group h-9 w-9 rounded-sm bg-accent/20 p-2 text-white hover:text-primary"
-                  )}
-                >
-                  <Share2 />
-                </Button>
-              </ShareLink>
-            </div>
-          </div>
+      </div>
+      <div className=" mt-4 sm:mt-8">
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="text-2xl md:text-3xl xl:text-4xl font-semibold">
+            {project.title}
+          </h1>
+          <ShareLink title={project.title} text={decodedContent}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn(
+                "group h-9 w-9 rounded-sm bg-accent/20 p-2 text-white hover:text-primary"
+              )}
+            >
+              <Share2 />
+            </Button>
+          </ShareLink>
         </div>
       </div>
-      <div className="max-w-[1100px] mt-4 container flex flex-row space-x-1.5 text-xs font-semibold">
+      <div className="mt-4  flex flex-row space-x-1.5 text-xs font-semibold">
         {project.tags.map((tag, index) => (
           <span
             key={index}
@@ -75,10 +73,10 @@ const Project = async ({ params }: PageParams) => {
         ))}
       </div>
       <div
-        className="container  mt-4 max-w-[1100px] "
+        className=" mt-4 "
         dangerouslySetInnerHTML={{ __html: decodedContent }}
       />
-      <div className="flex flex-col gap-10 pb-10 md:pb-20 container max-w-[1100px]">
+      <div className="flex flex-col gap-10 pb-10 md:pb-20 ">
         {!!project.podcasts.length && (
           <div className="py-4 md:py-8">
             <h3 className="text-primary font-extrabold text-xl md:text-2xl mb-4 pb-4 border-b">

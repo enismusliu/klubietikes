@@ -67,10 +67,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn("fixed inset-x-0 top-5 z-40 container flex", className)}
-    >
+    <motion.div ref={ref} className={cn("fixed inset-x-0  z-40", className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
@@ -98,13 +95,17 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       style={{
         minWidth: "100%",
       }}
-      className={cn(
-        "relative z-[60] bg-white shadow-xs border min-h-15 hidden  flex-row items-center justify-between self-start rounded-full  px-3 py-2 lg:flex dark:bg-transparent",
-
-        className
-      )}
+      className={cn("bg-white shadow-xs", visible && "shadow-sm")}
     >
-      {children}
+      <div
+        className={cn(
+          " z-[60]  min-h-15 hidden  container  flex-row items-center justify-between  py-2 lg:flex ",
+
+          className
+        )}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 };
@@ -117,7 +118,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-700 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        " inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-700 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
         className
       )}
     >
@@ -152,6 +153,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
+        backdropFilter: visible ? "blur(10px)" : "none",
         width: "100%",
       }}
       transition={{
@@ -160,7 +162,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 bg-white shadow-md border flex min-h-15 rounded-full! items-center justify-between  px-0 py-2 lg:hidden",
+        "relative z-50 flex h-15  bg-white  py-2 xl:hidden shadow-2xl",
         className
       )}
     >
@@ -176,7 +178,7 @@ export const MobileNavHeader = ({
   return (
     <div
       className={cn(
-        "flex container flex-row px-5 items-center justify-between",
+        "flex container flex-row  items-center justify-between",
         className
       )}
     >
@@ -199,7 +201,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-18 z-50 flex w-full flex-col items-center border justify-center gap-4 rounded-lg bg-white px-4  py-6",
+            "absolute inset-x-0 top-12 z-50 flex w-full flex-col items-center justify-center gap-4  bg-white p-4 pb-6  border-b-2 rounded-b-lg ",
             className
           )}
         >
@@ -217,11 +219,7 @@ export const MobileNavToggle = ({
   isOpen: boolean;
   onClick: () => void;
 }) => {
-  return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
-  ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
-  );
+  return isOpen ? <IconX onClick={onClick} /> : <IconMenu2 onClick={onClick} />;
 };
 
 export const NavbarLogo = () => {

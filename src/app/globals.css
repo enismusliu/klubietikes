@@ -88,9 +88,7 @@
   --sidebar-accent-foreground: oklch(0.9185 0.0257 285.8834);
   --sidebar-border: oklch(0.3261 0.0597 282.5832);
   --sidebar-ring: oklch(0.7162 0.1597 290.3962);
-  --font-sans: Inter, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: JetBrains Mono, monospace;
+  --font-poppins: Poppins;
   --radius: 0.5rem;
   --shadow-2xs: 0px 4px 10px 0px hsl(240 30% 25% / 0.06);
   --shadow-xs: 0px 4px 10px 0px hsl(240 30% 25% / 0.06);
@@ -141,9 +139,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
+  --font-poppins: var(--font-poppins);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -161,7 +157,7 @@
 }
 @utility container {
   margin: 0 auto;
-  padding-inline: 1rem;
+  padding-inline: 2rem;
   @variant sm {
     max-width: 1180px;
     padding-inline: 3rem;

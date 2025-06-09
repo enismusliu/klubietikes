@@ -24,7 +24,6 @@ const Podcast = async ({ searchParams }: PageParams) => {
       <PagesHeroSection
         imagePath="/images/podcast-bg.jpg"
         pageTitle="Podcast"
-        description="Dëgjo podcast-et tona ku trajtojmë tema etike, intervista me të ftuar dhe biseda frymëzuese."
       />
       <div className="container max-w-[1200px]  py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">
         {podcasts.map((podcast) => {
