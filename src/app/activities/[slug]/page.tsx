@@ -40,7 +40,7 @@ const Activity = async ({ params }: PageParams) => {
           className="w-full h-full object-cover rounded-3xl"
         />
       </div>
-      <div className="mb-1.5 lg:mb-3 ">
+      <div className="mb-3 lg:mb-5 ">
         <p className="text-sm mb-1.5  text-black/50">
           {formatDate(activity.finishedAt)}
         </p>
