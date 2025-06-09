@@ -32,11 +32,11 @@ const Card = ({
         <p className="font-bold text-md lg:text-lg  mb-3 transition-colors duration-300 ease-out group-hover:text-primary">
           {title.charAt(0).toUpperCase() + title.slice(1)}
         </p>
-        <div className="flex flex-row space-x-1.5 text-xs font-semibold">
+        <div className="flex flex-row flex-wrap space-x-1.5 text-xs font-semibold">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="border border-primary bg-white px-4 py-1 rounded-full text-primary"
+              className="border border-primary bg-white px-4 py-1 rounded-full text-primary whitespace-nowrap"
             >
               {tag}
             </span>
