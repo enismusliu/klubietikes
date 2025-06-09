@@ -19,7 +19,6 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(BASE_URL),
     title: activity.title,
-    description: activity.title,
   };
 }
 
@@ -61,8 +60,7 @@ const Activity = async ({ params }: PageParams) => {
             </Button>
           </ShareLink>
         </div>
-
-        <div className="flex flex-row space-x-1.5 text-xs font-semibold">
+        <div className="flex flex-row space-x-1.5 text-xs font-semibold  flex-wrap">
           {activity.tags.map((tag, index) => (
             <span
               key={index}
