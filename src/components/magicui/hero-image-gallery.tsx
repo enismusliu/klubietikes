@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { XIcon, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -82,6 +82,9 @@ export function HeroImageGallery({
   const selectedAnimation = animationVariants[animationStyle];
 
   const totalImages = images.length;
+  const visibleCount = 2; // show only first 2 thumbnails
+  const visibleImages = images.slice(0, visibleCount);
+  const hiddenCount = totalImages - visibleImages.length;
 
   const showPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + totalImages) % totalImages);
@@ -91,24 +94,55 @@ export function HeroImageGallery({
     setCurrentIndex((prev) => (prev + 1) % totalImages);
   };
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        showNext();
+      } else if (e.key === "ArrowLeft") {
+        showPrevious();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, showNext, showPrevious]);
+
   return (
     <div className={cn("relative", className)}>
-      <div className="flex items-center gap-3  lg:max-w-[80%] overflow-x-scroll no-scrollbar lg:flex-wrap">
-        {images.map((image, index) => {
-          return (
-            <div className=" max-w-24  max-h-24" key={index}>
-              <img
-                src={image}
-                className="min-w-24 h-24 object-cover rounded-md shadow-lg"
-                alt={`Imazhet e aktivitetit ${activityTitle}`}
-                onClick={() => {
-                  setIsOpen(true);
-                  setCurrentIndex(index);
-                }}
-              />
-            </div>
-          );
-        })}
+      <div className="flex items-center justify-start w-full gap-3">
+        {visibleImages.map((image, index) => (
+          <div className="max-w-20 max-h-20" key={index}>
+            <img
+              src={image}
+              className="min-w-20 h-20 object-cover rounded-md shadow-lg"
+              alt={thumbnailAlt}
+              onClick={() => {
+                setIsOpen(true);
+                setCurrentIndex(index);
+              }}
+            />
+          </div>
+        ))}
+        {hiddenCount > 0 && (
+          <div
+            className="w-20 h-20 relative rounded-md cursor-pointer"
+            onClick={() => {
+              setIsOpen(true);
+              setCurrentIndex(visibleCount);
+            }}
+          >
+            <img
+              src={images[visibleCount]}
+              className="min-w-20 h-20 object-cover rounded-md shadow-lg brightness-50"
+              alt={thumbnailAlt}
+            />
+            <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white font-medium">
+              +{hiddenCount}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Modal / Gallery */}
@@ -136,12 +170,12 @@ export function HeroImageGallery({
               </motion.button>
 
               {/* Image Container with Swipe */}
-              <div className="relative isolate z-[1] w-full max-h-[80%] overflow-hidden rounded-2xl  border-white">
+              <div className="relative isolate z-[1] w-full max-h-[80%] overflow-hidden rounded-2xl border-white">
                 <motion.img
                   key={currentIndex}
                   src={images[currentIndex]}
                   alt={`Gallery image ${currentIndex + 1}`}
-                  className="max-h-[70vh] w-full  object-contain select-none"
+                  className="max-h-[70vh] w-full object-contain select-none"
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   initial={{ opacity: 0, x: 0 }}
@@ -153,7 +187,7 @@ export function HeroImageGallery({
                 {/* Left Arrow */}
                 <button
                   onClick={showPrevious}
-                  className="absolute top-1/2 left-2 z-20  -translate-y-1/2 rounded-full bg-neutral-900/50 p-2.5 border border-white/50 text-white backdrop-blur-md dark:bg-neutral-100/50 dark:text-black"
+                  className="absolute top-1/2 left-2 z-20 -translate-y-1/2 rounded-full bg-neutral-900/50 p-2.5 border border-white/50 text-white backdrop-blur-md dark:bg-neutral-100/50 dark:text-black"
                 >
                   <ChevronLeft className="size-7" />
                 </button>

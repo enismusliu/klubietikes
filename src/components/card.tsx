@@ -19,20 +19,17 @@ const Card = ({
   return (
     <Link
       href={`/${module}/${slug}`}
-      className={cn(
-        "cursor-pointer overflow-hidden relative card  flex flex-col  w-full ",
-        "transform transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-101 "
-      )}
+      className={cn("group cursor-pointer  relative flex flex-col w-full")}
     >
-      <div className="w-full h-60 md:h-72  mb-2.5 rounded-xl">
+      <div className="w-full h-56 md:h-64 mb-2.5 rounded-2xl border overflow-hidden">
         <img
           src={coverImagePath ? coverImagePath : "/images/about-bg.jpg"}
           alt={`${title?.toLocaleLowerCase()}-image`}
-          className="w-full h-full object-cover border rounded-2xl"
+          className="w-full h-full object-cover border rounded-2xl transform transition-transform duration-300 ease-out group-hover:scale-105"
         />
       </div>
-      <div className="text content w-full ">
-        <p className="font-bold text-xl md:text-2xl truncate  mb-3">
+      <div className="text content w-full">
+        <p className="font-bold text-md lg:text-lg  mb-3 transition-colors duration-300 ease-out group-hover:text-primary">
           {title.charAt(0).toUpperCase() + title.slice(1)}
         </p>
         <div className="flex flex-row space-x-1.5 text-xs font-semibold">

@@ -5,7 +5,7 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const formatDate = (date: string, format = "DD/MM/YYYY") => {
+const formatDate = (date: string, format = "DD.MM.YYYY") => {
   if (!date) {
     return "N/A";
   }
@@ -21,7 +21,7 @@ export const getStatusColor = (
   dateString: string
 ): "green" | "orange" | "red" | "grey" => {
   if (!dateString) return "grey";
-  const date = dayjs(dateString, "DD/MM/YYYY");
+  const date = dayjs(dateString, "DD.MM.YYYY");
   const now = dayjs();
   const diffInDays = date.diff(now, "day");
 

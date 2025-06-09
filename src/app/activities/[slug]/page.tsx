@@ -2,7 +2,7 @@ import { HeroImageGallery } from "@/components/magicui/hero-image-gallery";
 import ShareLink from "@/components/share-link";
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/config/globals.config";
-import { decodeHtmlContent } from "@/lib/decode-html-content";
+import formatDate from "@/lib/date.utils";
 import { getTrpcCaller } from "@/lib/trpc/server";
 import { cn } from "@/lib/utils";
 import { PageParams } from "@/types";
@@ -19,7 +19,7 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(BASE_URL),
     title: activity.title,
-    description: decodeHtmlContent(activity.htmlContentDescription),
+    description: activity.title,
   };
 }
 
@@ -33,59 +33,53 @@ const Activity = async ({ params }: PageParams) => {
    */
   const decodedContent = decodeURIComponent(activity.htmlContentDescription);
   return (
-    <div>
-      <div className="relative h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] xl:h-[350px] 2xl:h-[370px]">
+    <div className="pt-5 lg:pt-7 lg:pb-12 flex flex-col gap-3 lg:gap-5 pb-10 container  max-w-6xl">
+      <div className="w-full aspect-[16/9] lg:aspect-[16/6] overflow-hidden rounded-3xl border">
         <img
           src={activity.coverImagePath}
           alt={`Projekti: ${activity.title}`}
-          width={1280}
-          height={800}
-          className="h-full w-full bg-gradient-to-b from-transparent to-black object-cover object-top brightness-50"
+          className="w-full h-full object-cover rounded-3xl"
         />
-        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-transparent to-black">
-          <div className="container absolute bottom-4 left-1/2 max-w-[1100px] -translate-x-1/2 transform text-white md:bottom-6 xl:bottom-8">
-            <div className="flex items-center justify-between gap-3">
-              <h1 className="text-[20px] sm:text-[30px] xl:text-[35px]">
-                {activity.title}
-              </h1>
-              <ShareLink title={activity.title} text={decodedContent}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={cn(
-                    "group h-9 w-9 rounded-sm bg-accent/20 p-2 text-white hover:text-primary"
-                  )}
-                >
-                  <Share2 />
-                </Button>
-              </ShareLink>
-            </div>
-          </div>
+      </div>
+      <div className="mb-1.5 lg:mb-3 ">
+        <p className="text-sm mb-1.5  text-black/50">
+          {formatDate(activity.finishedAt)}
+        </p>
+        <div className="flex items-center justify-between gap-3 lg:gap-5 mb-3">
+          <h1 className="text-xl md:text-2xl xl:text-3xl font-semibold">
+            {activity.title}
+          </h1>
+          <ShareLink title={activity.title} text={decodedContent}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn(
+                "group h-9 w-9 rounded-lg bg-accent/20 p-2 border  hover:text-primary"
+              )}
+            >
+              <Share2 />
+            </Button>
+          </ShareLink>
+        </div>
+
+        <div className="flex flex-row space-x-1.5 text-xs font-semibold">
+          {activity.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="border whitespace-nowrap border-primary bg-white px-4 py-1 rounded-full text-primary"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
-      <div className="container max-w-[1100px] mt-8 mb-4">
-        <HeroImageGallery
-          images={activity.activityImagesPaths}
-          thumbnailSrc={activity.coverImagePath}
-          thumbnailAlt="Gallery thumbnail"
-          animationStyle="from-center"
-          className="mx-auto "
-        />
-      </div>
-      <div className="max-w-[1100px]  container flex flex-row space-x-1.5 text-xs font-semibold">
-        {activity.tags.map((tag, index) => (
-          <span
-            key={index}
-            className="border border-primary bg-white px-4 py-1 rounded-md text-primary"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <div
-        className="container mb-8 mt-4 max-w-[1100px]"
-        dangerouslySetInnerHTML={{ __html: decodedContent }}
+      <HeroImageGallery
+        images={activity.activityImagesPaths}
+        thumbnailSrc={activity.coverImagePath}
+        thumbnailAlt="Gallery thumbnail"
+        animationStyle="from-center"
       />
+      <div dangerouslySetInnerHTML={{ __html: decodedContent }} />
     </div>
   );
 };
