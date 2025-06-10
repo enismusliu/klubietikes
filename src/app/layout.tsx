@@ -1,13 +1,19 @@
-import { Poppins } from "next/font/google";
+import { Merriweather, Merriweather_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
+  weight: ["300", "400", "700", "900"],
+  subsets: ["latin"],
+});
+
+const merriweatherSans = Merriweather_Sans({
+  variable: "--font-merriweather-sans",
+  weight: ["300", "400", "500", "600", "800"],
   subsets: ["latin"],
 });
 
@@ -32,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={` ${poppins.variable} antialiased relative font-poppins`}
+        className={` ${merriweather.variable} ${merriweatherSans.variable} antialiased relative font-merriweather-sans`}
       >
         <Providers user={null}>
           <div className="h-dvh ">

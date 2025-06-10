@@ -40,6 +40,12 @@ const Activity = async ({ params }: PageParams) => {
           className="w-full h-full object-cover rounded-3xl"
         />
       </div>
+      <HeroImageGallery
+        images={activity.activityImagesPaths}
+        thumbnailSrc={activity.coverImagePath}
+        thumbnailAlt="Gallery thumbnail"
+        animationStyle="from-center"
+      />
       <div className="mb-3 lg:mb-5 ">
         <p className="text-sm mb-1.5  text-black/50">
           {formatDate(activity.finishedAt)}
@@ -71,12 +77,7 @@ const Activity = async ({ params }: PageParams) => {
           ))}
         </div>
       </div>
-      <HeroImageGallery
-        images={activity.activityImagesPaths}
-        thumbnailSrc={activity.coverImagePath}
-        thumbnailAlt="Gallery thumbnail"
-        animationStyle="from-center"
-      />
+
       <div dangerouslySetInnerHTML={{ __html: decodedContent }} />
     </div>
   );

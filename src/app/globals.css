@@ -139,7 +139,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-poppins: var(--font-poppins);
+  --font-merriweather-sans: var(--font-merriweather-sans);
+  --font-merriweather: var(--font-merriweather);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -174,6 +175,14 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-merriweather;
   }
 }
 @layer base {
