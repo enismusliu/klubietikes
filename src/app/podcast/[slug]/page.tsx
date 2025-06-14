@@ -74,7 +74,7 @@ const Podcast = async ({ params }: PageParams) => {
           {podcast.tags.map((tag, index) => (
             <span
               key={index}
-              className="border whitespace-nowrap border-primary bg-white px-4 py-1 rounded-full text-primary"
+              className="border border-black/20 bg-white px-3 py-0.5 rounded-lg text-black/50 font-light whitespace-nowrap"
             >
               {tag}
             </span>

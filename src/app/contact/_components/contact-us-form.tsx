@@ -7,7 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import TextField from "@/components/controlled-input/text-field";
-import { Mail, User } from "lucide-react";
+import { Mail, Package2, User } from "lucide-react";
 import { contactUsFormSchema } from "@/schemas/contac-us/contact-us.schema";
 import { contactUsAction } from "@/server/actions/contact-us.actions";
 import TextArea from "@/components/controlled-input/text-area";
@@ -82,7 +82,9 @@ export function ContactUsForm({
               control={form.control}
               name="subject"
               placeholder="Subjekti"
-              startAdornment={<User width={16} height={16} color="#D9D9D9" />}
+              startAdornment={
+                <Package2 width={16} height={16} color="#D9D9D9" />
+              }
             />
             <TextArea
               control={form.control}
@@ -91,8 +93,13 @@ export function ContactUsForm({
             />
           </div>
 
-          <Button type="submit" className="w-full mt-3" loading={isPending}>
-            Dergo
+          <Button
+            type="submit"
+            className="w-full mt-3"
+            color="secondary"
+            loading={isPending}
+          >
+            Dërgo
           </Button>
         </div>
       </form>

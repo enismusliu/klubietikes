@@ -14,7 +14,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
       role="navigation"
       aria-label="pagination"
       data-slot="pagination"
-      className={cn(" flex w-full justify-center", className)}
+      className={cn("flex w-full justify-center", className)}
       {...props}
     />
   );
@@ -27,7 +27,7 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex flex-row items-center gap-1 ", className)}
+      className={cn("flex flex-row items-center gap-1", className)}
       {...props}
     />
   );
@@ -55,10 +55,13 @@ function PaginationLink({
       data-active={isActive}
       className={cn(
         buttonVariants({
+          // Use default (primary) when active, ghost otherwise
           variant: isActive ? "outline" : "ghost",
           size,
         }),
-        "px-1",
+        "px-1 text-black/50 hover:text-primary",
+        // Ensure white text on primary background when active
+        isActive && " text-primary",
         className
       )}
       {...props}

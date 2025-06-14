@@ -38,9 +38,9 @@ export default function SearchInput({ className, ...rest }: MyInputProps) {
     const params = new URLSearchParams(window.location.search);
 
     if (query) {
-      params.set("q", query);
+      params.set("search", query);
       if (params.has("page")) params.delete("page");
-    } else params.delete("q");
+    } else params.delete("search");
 
     startTransition(() => {
       replace(`${pathname}?${params.toString()}`);
@@ -54,7 +54,7 @@ export default function SearchInput({ className, ...rest }: MyInputProps) {
       startAdornment={<Search className="h-5 w-5 text-muted-foreground" />}
       onChange={(event) => debounced(event.target.value)}
       {...rest}
-      placeholder="Search"
+      placeholder="Kërko"
       endAdornment={
         isPending ? (
           <RotateCwIcon className="h-5 w-5 animate-spin text-muted" />
@@ -62,7 +62,7 @@ export default function SearchInput({ className, ...rest }: MyInputProps) {
           <></>
         )
       }
-      className={`h-9 max-w-60 ${className}`}
+      className={`h-11 ${className}`}
     />
   );
 }

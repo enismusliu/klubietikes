@@ -73,7 +73,10 @@ export function Header() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={cn(isActive && "text-primary font-bold")}
+                className={cn(
+                  "text-zinc-500",
+                  isActive && "font-bold text-black"
+                )}
               >
                 <span className="block">{item.name}</span>
               </Link>
@@ -82,7 +85,10 @@ export function Header() {
           <Link
             onClick={() => setIsMobileMenuOpen(false)}
             href="/podcast"
-            className={cn(buttonVariants(), "min-w-[150px]")}
+            className={cn(
+              buttonVariants({ color: "secondary" }),
+              "min-w-[150px]"
+            )}
           >
             <MicVocal className="text-white " />
             Podcasts

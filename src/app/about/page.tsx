@@ -20,13 +20,11 @@ const About = () => {
         <div className="grid gap-10 md:gap-16 md:grid-cols-2 ">
           <div className="self-center ">
             <p className="text-lg md:text-xl">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              minima repellendus nam consequatur perspiciatis cupiditate
-              officiis, libero facere, deserunt reiciendis eum maiores sit.
-              Repellendus iure itaque odit neque quidem? Exercitationem fugiat
-              necessitatibus beatae, aliquid eaque laboriosam. Similique, natus
-              exercitationem! Inventore tenetur tempore beatae dolor distinctio
-              provident numquam?
+              Klubi i Etikës – Fakulteti Juridik është një grup formal studentor
+              që vepron në kuadër të Universitetit të Prishtinës “Hasan
+              Prishtina”. Misioni i tij është promovimi i integritetit akademik,
+              ngritja e vetëdijes për çështjet etike dhe fuqizimi i studentëve
+              përmes përfshirjes aktive në jetën universitare.
             </p>
           </div>
           <img
@@ -47,13 +45,13 @@ const About = () => {
           />
           <div className="self-center ">
             <p className="text-lg md:text-xl">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              minima repellendus nam consequatur perspiciatis cupiditate
-              officiis, libero facere, deserunt reiciendis eum maiores sit.
-              Repellendus iure itaque odit neque quidem? Exercitationem fugiat
-              necessitatibus beatae, aliquid eaque laboriosam. Similique, natus
-              exercitationem! Inventore tenetur tempore beatae dolor distinctio
-              provident numquam?
+              Klubi angazhohet në parandalimin e dukurive negative si kopjimi,
+              plagjiatura, mashtrimi dhe ngacmimet seksuale, duke organizuar
+              trajnime, fushata dhe aktivitete ndërgjegjësuese. <br />
+              Përmes bashkëpunimit me strukturat institucionale dhe përfaqësimit
+              të studentëve, Klubi synon të krijojë një ambient të drejtë, të
+              sigurt dhe profesional, duke kontribuar në ndërtimin e një kulture
+              etike brenda Fakultetit Juridik.
             </p>
           </div>
           <img

@@ -18,11 +18,11 @@ interface PaginationProps {
 
 export function Pagination({ pageCount, className }: PaginationProps) {
   const searchParams = useSearchParams();
-  const currentPage = parseInt(searchParams.get("pagenumber") || "1", 10);
+  const currentPage = parseInt(searchParams.get("page") || "1", 10);
 
   const buildHref = (pageNumber: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("pagenumber", pageNumber.toString());
+    params.set("page", pageNumber.toString());
     return `?${params.toString()}`;
   };
 
@@ -120,35 +120,7 @@ export function Pagination({ pageCount, className }: PaginationProps) {
 
   return (
     <ShadcnPagination className={cn("mt-10 md:justify-end", className)}>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationLink
-            href={buildHref(currentPage - 1)}
-            aria-label="Previous Page"
-            size="default"
-            className={cn(currentPage === 1 && "pointer-events-none")}
-            aria-disabled={currentPage === 1}
-            tabIndex={currentPage === 1 ? -1 : undefined}
-          >
-            <PaginationPrevious className="min-w-0" />
-          </PaginationLink>
-        </PaginationItem>
-
-        {renderPageLinks()}
-
-        <PaginationItem className={cn("w-full")}>
-          <PaginationLink
-            href={buildHref(currentPage + 1)}
-            aria-label="Next Page"
-            size="default"
-            className={cn(currentPage === pageCount && "pointer-events-none")}
-            aria-disabled={currentPage === pageCount}
-            tabIndex={currentPage === pageCount ? -1 : undefined}
-          >
-            <PaginationNext className="min-w-0" />
-          </PaginationLink>
-        </PaginationItem>
-      </PaginationContent>
+      <PaginationContent>{renderPageLinks()}</PaginationContent>
     </ShadcnPagination>
   );
 }

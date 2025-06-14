@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { GridBackground } from "@/components/ui/grid-background";
 import { motion } from "motion/react";
 import React from "react";
 
@@ -11,15 +12,9 @@ const HeroSection = () => {
     }
   };
   return (
-    <div className="relative h-dvh overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center filter brightness-20"
-        style={{
-          backgroundImage: "url(/images/hero-section-bg.jpg)",
-        }}
-      />
-      <div className="relative z-10 flex flex-col h-full items-center justify-center px-4 py-10 max-w-7xl mx-auto">
-        <h1 className="max-w-3xl text-center mx-auto text-balance text-3xl font-bold text-primary md:text-4xl lg:text-6xl ">
+    <GridBackground className="grid md:grid-cols-2 container items-center justify-center gap-10">
+      <div className="flex flex-col h-full justify-center text-center md:text-start">
+        <h1 className="text-balance  text-3xl lg:leading-14 font-bold  md:text-4xl lg:text-4xl ">
           {`Ligji na mëson rregullin. Etika na mëson drejtësinë.`
             .split(" ")
             .map((word, index) => (
@@ -43,32 +38,36 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.8 }}
-          className="mt-4 max-w-3xl mx-auto text-center text-balance text-lg font-normal text-white/80 0"
+          className="mt-2 md:mt-4  text-balance text-base md:text-lg  text-black/50 font-light"
         >
-          Hapësirë ku
-          <span className="bg-white border border-primary px-3 mx-2 text-primary font-bold rounded-md">
-            idetë
-          </span>
-          marrin formë përmes ndarjes së mendimeve, diskutimeve dhe
-          bashkëkuptimit.
+          Hapësirë ku idetë marrin formë përmes ndarjes së mendimeve,
+          diskutimeve dhe bashkëkuptimit.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 1 }}
-          className="mt-8 flex gap-10 flex-wrap justify-center 2xl:flex-nowrap"
+          className="mt-8 flex gap-3 justify-center md:justify-start"
         >
           <Button
             onClick={scrollToProjects}
-            className="min-w-xs bg-white/10 hover:bg-white/15 font-bold"
             variant="outline"
+            className="border-black/30 text-black/80 hover:bg-black/5 bg-white"
           >
-            Më shumë
+            Mëso më shumë
+          </Button>
+          <Button onClick={scrollToProjects} color="secondary">
+            Kontakto
           </Button>
         </motion.div>
       </div>
-    </div>
+      <img
+        src="/images/hero-img.jpg"
+        alt=""
+        className="h-[300px] md:h-[calc(100dvh-60%)] mx-auto object-cover object-left-top rounded-tl-[150px] w-auto"
+      />
+    </GridBackground>
   );
 };
 

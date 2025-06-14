@@ -1,5 +1,8 @@
 import Card from "@/components/card";
+import SearchInput from "@/components/controlled-input/search-input";
+import Empty from "@/components/empty";
 import PagesHeroSection from "@/components/pages-hero-section";
+import { Pagination } from "@/components/pagination";
 import { getTrpcCaller } from "@/lib/trpc/server";
 import { PageParams } from "@/types";
 import { Metadata } from "next";
@@ -17,6 +20,7 @@ const Activities = async ({ searchParams }: PageParams) => {
   const { data: activities, paginationData } = await trpc.public.getActivities({
     page,
     search,
+    pageSize: "6",
   });
   return (
     <div className="">
@@ -24,20 +28,33 @@ const Activities = async ({ searchParams }: PageParams) => {
         imagePath="/images/activites-bg.jpg"
         pageTitle="Aktivitetet"
       />
-      <div className="container max-w-[1200px]  py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10  auto-rows-min md:gap-16 ">
-        {activities.map((activity) => {
-          return (
-            <Card
-              key={activity.slug}
-              tags={activity.tags}
-              title={activity.title}
-              slug={activity.slug}
-              module="activities"
-              coverImagePath={activity.coverImagePath}
-            />
-          );
-        })}
+      <div className="container">
+        <div className="mx-4 sm:max-w-[80%] sm:mx-auto md:max-w-[50%] h-10 z-10 relative  -mt-5 bg-white rounded-lg shadow">
+          <SearchInput className="w-full" />
+        </div>
       </div>
+      {activities.length < 1 ? (
+        <Empty />
+      ) : (
+        <div className="container  py-10 md:py-16 ">
+          <div className="grid3">
+            {activities.map((activity) => {
+              return (
+                <Card
+                  key={activity.slug}
+                  tags={activity.tags}
+                  title={activity.title}
+                  slug={activity.slug}
+                  module="activities"
+                  coverImagePath={activity.coverImagePath}
+                  date={activity.finishedAt}
+                />
+              );
+            })}
+          </div>
+          <Pagination pageCount={paginationData.totalPages} />
+        </div>
+      )}
     </div>
   );
 };

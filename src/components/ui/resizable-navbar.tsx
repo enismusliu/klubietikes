@@ -59,7 +59,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 100) {
+    if (latest > 20) {
       setVisible(true);
     } else {
       setVisible(false);
@@ -81,6 +81,8 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 };
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
+  const pathname = usePathname();
+  const home = pathname === "/";
   return (
     <motion.div
       animate={{
@@ -95,7 +97,11 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       style={{
         minWidth: "100%",
       }}
-      className={cn("bg-white shadow-xs", visible && "shadow-sm")}
+      className={cn(
+        "bg-white shadow-xs",
+        home && "shadow-none bg-transparent",
+        visible && "bg-white/80 backdrop-blur-md shadow-sm"
+      )}
     >
       <div
         className={cn(
@@ -118,7 +124,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        " inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-700 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        " inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-400 transition duration-200  lg:flex lg:space-x-2",
         className
       )}
     >
@@ -129,8 +135,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             onMouseEnter={() => setHovered(idx)}
             onClick={onItemClick}
             className={cn(
-              "relative px-4 py-2 ",
-              isActive && "bg-primary/20 font-bold cursor-default rounded-full"
+              "relative px-4 py-2 text-",
+              isActive && "font-bold cursor-default rounded-lg text-black"
             )}
             key={`link-${idx}`}
             href={item.link}
@@ -138,7 +144,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {hovered === idx && !isActive && (
               <motion.div
                 layoutId="hovered"
-                className="absolute inset-0 h-full w-full rounded-full bg-primary/20 "
+                className="absolute inset-0 h-full w-full rounded-lg bg-primary/5 "
               />
             )}
             <span className="relative z-20">{item.name}</span>
@@ -150,6 +156,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
 };
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
+  const pathname = usePathname();
+  const home = pathname === "/";
   return (
     <motion.div
       animate={{

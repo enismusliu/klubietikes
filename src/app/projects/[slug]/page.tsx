@@ -39,11 +39,11 @@ const Project = async ({ params }: PageParams) => {
   const decodedContent = decodeURIComponent(project.htmlContentDescription);
   return (
     <div className="pt-5 lg:pt-7 lg:pb-12 flex flex-col gap-3 lg:gap-5 pb-10 container  max-w-6xl">
-      <div className="w-full  aspect-[16/9] lg:aspect-[16/6] overflow-hidden rounded-3xl border">
+      <div className="w-full  aspect-[16/9] lg:aspect-[16/6] overflow-hidden rounded-lg border">
         <img
           src={project.coverImagePath}
           alt={`Projekti: ${project.title}`}
-          className="w-full h-full object-cover rounded-3xl"
+          className="w-full h-full object-cover rounded-lg"
         />
       </div>
       <div className="mb-3 lg:mb-5">
@@ -67,7 +67,7 @@ const Project = async ({ params }: PageParams) => {
           {project.tags.map((tag, index) => (
             <span
               key={index}
-              className="border whitespace-nowrap border-primary bg-white px-4 py-1 rounded-full text-primary"
+              className="border border-black/20 bg-white px-3 py-0.5 rounded-lg text-black/50 font-light whitespace-nowrap"
             >
               {tag}
             </span>

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRight, Copyright } from "lucide-react";
+import { ChevronRight, Copyright, Facebook, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function Footer() {
@@ -35,31 +35,55 @@ export default function Footer() {
           />
           <p className="text-white">Etika në veprim, bashkë për ndryshim.</p>
         </div>
+        <div className="flex flex-col gap-3">
+          <div className="flex  gap-x-5 text-sm flex-wrap">
+            {navItems.map((item) => {
+              const isActive = pathname?.startsWith(item.href);
 
-        <div className="flex  gap-x-5 text-sm flex-wrap">
-          {navItems.map((item) => {
-            const isActive = pathname?.startsWith(item.href);
-
-            if (isActive) {
+              if (isActive) {
+                return (
+                  <span
+                    key={item.href}
+                    className="border p-1 px-3 rounded-lg cursor-default"
+                  >
+                    {item.label}
+                  </span>
+                );
+              }
               return (
-                <span
+                <Link
                   key={item.href}
-                  className="border p-1 px-3 rounded-full cursor-default"
+                  href={item.href}
+                  className="hover:underline py-1"
                 >
                   {item.label}
-                </span>
+                </Link>
               );
-            }
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="hover:underline py-1"
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+            })}
+          </div>
+          <div className="flex space-x-4 [&>a]:text-white  md:self-end ">
+            <a
+              href="https://www.facebook.com/klubiietikes.fakultetijuridik"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook size={20} />
+            </a>
+            <a
+              href="https://www.instagram.com/klubiietikes/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@klubiietikes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/tik-tok.svg" alt="" className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
 

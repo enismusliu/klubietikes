@@ -4,6 +4,7 @@ import Providers from "@/providers";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
+import Content from "./_components/content";
 
 const merriweather = Merriweather({
   variable: "--font-merriweather",
@@ -43,7 +44,7 @@ export default async function RootLayout({
         <Providers user={null}>
           <div className="h-dvh ">
             <Header />
-            <div className="pt-16">{children}</div>
+            <Content>{children}</Content>
             <Footer />
           </div>
         </Providers>
