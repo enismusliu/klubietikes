@@ -3,6 +3,8 @@ import TopProjects from "./_components/top-projects";
 import TopActivities from "./_components/top-activities";
 import TopPodcasts from "./_components/top-podcasts";
 import HeroSection from "./_components/hero-section";
+import HaveQuestions from "@/components/have-questions";
+import Sponsors from "@/components/sponsors";
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
         <TopProjects />
         <TopActivities />
         <TopPodcasts />
+        {/* <Sponsors /> */}
+        <HaveQuestions className="container" />
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ export default function Footer() {
                 return (
                   <span
                     key={item.href}
-                    className="border p-1 px-3 rounded-lg cursor-default"
+                    className="text-secondary py-1  cursor-default"
                   >
                     {item.label}
                   </span>
@@ -54,7 +54,7 @@ export default function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="hover:underline py-1"
+                  className="hover:underline py-1 border-b border-transparent"
                 >
                   {item.label}
                 </Link>
@@ -101,7 +101,7 @@ export default function Footer() {
           onClick={handleNavigationToTheTop}
           size="icon"
           variant="outline"
-          className="h-7 w-7 border-white/30 text-white"
+          className="h-7 w-7 border-white/30 text-white hover:text-secondary hover:border-secondary"
         >
           <ChevronRight className="-rotate-90" size={20} />
         </Button>

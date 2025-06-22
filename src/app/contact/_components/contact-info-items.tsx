@@ -15,11 +15,11 @@ export const ContactInfoItem: React.FC<Props> = ({
   children,
 }) => (
   <div className="flex items-center gap-3">
-    <div className="h-16 min-w-16 text-primary bg-primary/10 flex items-center justify-center rounded-lg">
+    <div className="h-20 min-w-20 text-primary bg-primary/10 flex items-center justify-center rounded-lg">
       <Icon className="w-7 h-7" />
     </div>
     <div>
-      <p className="mb-1 text-black/50">{label}</p>
+      <p className="mb-1 text-sm text-black/50">{label}</p>
       <a href={href} className="text-sm font-medium hover:underline">
         {children}
       </a>

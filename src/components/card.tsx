@@ -24,7 +24,7 @@ const Card = ({
       href={`/${module}/${slug}`}
       className={cn("group cursor-pointer  relative flex flex-col w-full")}
     >
-      <div className="w-full h-56 md:h-64 mb-2.5 rounded-lg border overflow-hidden">
+      <div className="aspect-video mb-2.5 rounded-lg border overflow-hidden">
         <img
           src={coverImagePath ? coverImagePath : "/images/about-bg.jpg"}
           alt={`${title?.toLocaleLowerCase()}-image`}

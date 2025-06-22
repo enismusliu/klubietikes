@@ -90,6 +90,7 @@ export function ContactUsForm({
               control={form.control}
               name="message"
               placeholder="Mesazhi"
+              className="h-[150px]"
             />
           </div>
 

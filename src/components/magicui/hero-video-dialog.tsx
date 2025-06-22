@@ -81,7 +81,7 @@ export function HeroVideoDialog({
   return (
     <div className={cn("relative", className)}>
       <div
-        className="group relative cursor-pointer w-full aspect-[16/9] lg:aspect-[16/6] overflow-hidden rounded-3xl border  "
+        className="group aspect-video overflow-hidden rounded-lg mb-5 lg:mb-7  "
         onClick={() => setIsVideoOpen(true)}
       >
         <img
@@ -89,7 +89,7 @@ export function HeroVideoDialog({
           alt={thumbnailAlt}
           width={1920}
           height={1080}
-          className="w-full h-full rounded-md border shadow-lg transition-all duration-200 ease-out object-cover object-top brightness-60  group-hover:brightness-[0.8]"
+          className="w-full h-full rounded-md border shadow-lg transition-all duration-200 ease-out object-cover  brightness-60  group-hover:brightness-[0.7]"
         />
         <div className="absolute inset-0 flex scale-[0.9] items-center justify-center rounded-2xl transition-all duration-200 ease-out group-hover:scale-100">
           <div className="flex size-20 items-center justify-center rounded-full bg-primary/10 backdrop-blur-md">
@@ -121,7 +121,7 @@ export function HeroVideoDialog({
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative mx-4 aspect-video w-full max-w-4xl md:mx-0"
             >
-              <motion.button className="absolute -top-16 right-0 rounded-full bg-neutral-900/50 p-2 text-xl text-white ring-1 backdrop-blur-md dark:bg-neutral-100/50 dark:text-black">
+              <motion.button className="absolute -top-12 right-0 rounded-full bg-neutral-900/50 p-2 text-xl text-white ring-1 backdrop-blur-md dark:bg-neutral-100/50 dark:text-black">
                 <XIcon className="size-5" />
               </motion.button>
               <div className="relative isolate z-[1] size-full overflow-hidden rounded-2xl border-2 border-white">
