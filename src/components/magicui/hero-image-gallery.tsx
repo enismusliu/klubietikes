@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { XIcon, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type AnimationStyle =
   | "from-bottom"
@@ -114,8 +115,10 @@ export function HeroImageGallery({
       <div className="flex items-center justify-start w-full gap-3">
         {visibleImages.map((image, index) => (
           <div className="max-w-20 max-h-20" key={index}>
-            <img
+            <Image
               src={image}
+              width={80}
+              height={80}
               className="min-w-20 h-20 object-cover rounded-md shadow-lg"
               alt={thumbnailAlt}
               onClick={() => {

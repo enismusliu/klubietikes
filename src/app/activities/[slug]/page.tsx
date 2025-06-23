@@ -96,6 +96,13 @@ const Activity = async ({ params }: PageParams) => {
               className="w-full h-full object-cover"
             />
           </div>
+          <HeroImageGallery
+            images={activity.activityImagesPaths}
+            thumbnailSrc={activity.coverImagePath}
+            thumbnailAlt="Gallery thumbnail"
+            animationStyle="from-center"
+            className="mx-4 mb-5"
+          />
           <div className="flex flex-row gap-1.5 text-xs font-semibold  flex-wrap mb-3 lg:mb-5 mx-4">
             {activity.tags.map((tag, index) => (
               <span
