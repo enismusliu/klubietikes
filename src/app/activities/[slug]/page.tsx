@@ -57,7 +57,7 @@ const Activity = async ({ params }: PageParams) => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/activites">Aktivitetet</BreadcrumbLink>
+              <BreadcrumbLink href="/activities">Aktivitetet</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
