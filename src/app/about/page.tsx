@@ -21,18 +21,20 @@ const About = () => {
         <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 ">
           <div className="self-center ">
             <p className="text-lg md:text-xl">
-              <span className="font-bold">
-                Klubi i Etikës – Fakulteti Juridik
-              </span>{" "}
-              është një grup formal studentor që vepron në kuadër të{" "}
-              <span className="font-bold">
+              <span className="font-bold text-primary">Klubi i Etikës </span> –
+              Fakulteti Juridik është një grup formal studentor që vepron në
+              kuadër të{" "}
+              <a
+                href="https://uni-pr.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-red-800 hover:text-red-700"
+              >
                 Universitetit të Prishtinës “Hasan Prishtina”
-              </span>
-              .{" "}
-              <span className="text-primary font-extrabold">Misioni i tij</span>{" "}
-              është promovimi i integritetit akademik, ngritja e vetëdijes për
-              çështjet etike dhe fuqizimi i studentëve përmes përfshirjes aktive
-              në jetën universitare.
+              </a>
+              . Misioni i tij është promovimi i integritetit akademik, ngritja e
+              vetëdijes për çështjet etike dhe fuqizimi i studentëve përmes
+              përfshirjes aktive në jetën universitare.
             </p>
           </div>
           <div className="relative w-full h-[250px] lg:h-[400px] max-w-[90%]">
@@ -55,20 +57,23 @@ const About = () => {
           </div>
           <div className="self-center ">
             <p className="text-lg md:text-xl">
-              <span className="font-bold">Klubi</span> angazhohet në
-              parandalimin e dukurive negative si kopjimi, plagjiatura,
+              <span className="font-bold text-primary">Klubi</span> angazhohet
+              në parandalimin e dukurive negative si kopjimi, plagjiatura,
               mashtrimi dhe ngacmimet seksuale, duke organizuar trajnime,
               fushata dhe aktivitete ndërgjegjësuese.
               <br />
               Përmes bashkëpunimit me strukturat institucionale dhe përfaqësimit
-              të studentëve,
-              <span className="text-primary font-bold">
-                {" "}
-                Klubi synon të krijojë
-              </span>{" "}
-              një ambient të drejtë, të sigurt dhe profesional, duke kontribuar
-              në ndërtimin e një kulture etike brenda{" "}
-              <span className="font-bold">Fakultetit Juridik.</span>
+              të studentëve, Klubi synon të krijojë një ambient të drejtë, të
+              sigurt dhe profesional, duke kontribuar në ndërtimin e një kulture
+              etike brenda{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-red-800 hover:text-red-700"
+                href="https://juridiku.uni-pr.edu/"
+              >
+                Fakultetit Juridik.
+              </a>
             </p>
           </div>
           <div className="relative w-[90%] ml-4 h-[250px] lg:h-[400px] lg:hidden">

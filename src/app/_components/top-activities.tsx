@@ -24,13 +24,26 @@ const TopActivities = async () => {
             <h3 className="font-extrabold text-seconadary text-xl md:text-2xl  ">
               Aktivitetet tona të fundit
             </h3>
-            <div className="flex items-center justify-end  gap-3 ">
+            <div className="hidden sm:flex items-center justify-end  gap-3 ">
               <CarouselPrevious className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
               <CarouselNext className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
             </div>
           </div>
           <hr className="mb-3 lg:mb-5 bg-secondary h-1 rounded-full -mt-4.5 w-20" />
-          <CarouselContent className="py-3">
+          <div className="sm:hidden flex flex-col gap-7">
+            {activities.slice(3).map((activity) => (
+              <Card
+                key={activity.slug}
+                tags={activity.tags}
+                title={activity.title}
+                slug={activity.slug}
+                module="activities"
+                coverImagePath={activity.coverImagePath}
+                date={activity.finishedAt}
+              />
+            ))}
+          </div>
+          <CarouselContent className="py-3 hidden sm:flex">
             {activities.map((activity) => (
               <CarouselItem
                 key={activity.slug}

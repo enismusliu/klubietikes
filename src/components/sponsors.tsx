@@ -36,7 +36,7 @@ export default function Sponsors() {
     {
       name: "Mizan Solutions",
       url: "https://www.mizan-solutions.com/",
-      logo: "images/main-logo.png",
+      logo: "images/mizan-logo.png",
     },
   ];
 
@@ -64,8 +64,7 @@ export default function Sponsors() {
                     height={56}
                     className={cn(
                       "mb-2 h-18 w-auto object-contain",
-                      sponsor.name === "Mizan Solutions" &&
-                        "bg-black/80 p-3 rounded-lg"
+                      sponsor.name === "Mizan Solutions" && "w-64"
                     )}
                   />
                   <p className="font-semibold text-sm">{sponsor.name} </p>

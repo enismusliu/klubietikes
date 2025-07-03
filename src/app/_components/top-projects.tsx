@@ -24,14 +24,25 @@ const TopProjects = async () => {
           <h3 className="font-extrabold text-xl md:text-2xl  ">
             Projektet tona të fundit
           </h3>
-          <div className="flex items-center justify-end  gap-3 ">
+          <div className="hidden sm:flex items-center justify-end  gap-3 ">
             <CarouselPrevious className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
             <CarouselNext className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
           </div>
         </div>
         <hr className="mb-3 lg:mb-5 bg-black/50 h-1 rounded-full -mt-4.5 w-20" />
-
-        <CarouselContent className="py-3">
+        <div className="sm:hidden flex flex-col gap-3">
+          {projects.slice(3).map((project) => (
+            <HomeProjectCard
+              key={project.slug}
+              tags={project.tags}
+              title={project.title}
+              slug={project.slug}
+              module="projects"
+              coverImagePath={project.coverImagePath}
+            />
+          ))}
+        </div>
+        <CarouselContent className="py-3 hidden sm:flex">
           {projects.map((project) => (
             <CarouselItem key={project.slug} className="md:basis-1/2 ">
               <HomeProjectCard

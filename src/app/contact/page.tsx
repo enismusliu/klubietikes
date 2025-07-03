@@ -45,7 +45,6 @@ const Contact = () => (
           dhe do të të përgjigjemi sa më shpejt!
         </p>
 
-        {/* show on md+ */}
         <div className="hidden lg:flex flex-col gap-4">
           {items.map(({ icon, label, href, text }) => (
             <ContactInfoItem key={label} icon={icon} label={label} href={href}>
@@ -57,7 +56,6 @@ const Contact = () => (
 
       <ContactUsForm />
 
-      {/* show on < lg */}
       <div className="flex flex-col gap-4 lg:hidden mt-10">
         {items.map(({ icon, label, href, text }) => (
           <ContactInfoItem key={label} icon={icon} label={label} href={href}>

@@ -140,7 +140,7 @@ const Activity = async ({ params }: PageParams) => {
           </div>
         </div>
       </div>
-      <HaveQuestions className="mt-3 lg:mt-5" />
+      <HaveQuestions className="mt-10 lg:mt-12" />
     </div>
   );
 };

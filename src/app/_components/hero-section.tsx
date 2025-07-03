@@ -1,7 +1,9 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { GridBackground } from "@/components/ui/grid-background";
+import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import Link from "next/link";
 import React from "react";
 
 const HeroSection = () => {
@@ -50,16 +52,23 @@ const HeroSection = () => {
           transition={{ duration: 0.3, delay: 1 }}
           className="mt-8 flex gap-3 justify-center md:justify-start"
         >
-          <Button
+          <Link
             onClick={scrollToProjects}
-            variant="outline"
-            className="border-black/30 text-black/80 hover:bg-black/5 bg-white"
+            href="/about"
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "border-black/30 text-black/80 hover:bg-black/5 bg-white"
+            )}
           >
             Mëso më shumë
-          </Button>
-          <Button onClick={scrollToProjects} color="secondary">
+          </Link>
+          <Link
+            href="/contact"
+            onClick={scrollToProjects}
+            className={cn(buttonVariants({ color: "secondary" }))}
+          >
             Kontakto
-          </Button>
+          </Link>
         </motion.div>
       </div>
       <img

@@ -15,7 +15,7 @@ export const ContactInfoItem: React.FC<Props> = ({
   children,
 }) => (
   <div className="flex items-center gap-3">
-    <div className="h-20 min-w-20 text-primary bg-primary/10 flex items-center justify-center rounded-lg">
+    <div className="h-15 min-w-15 sm:h-20 sm:min-w-20 text-primary bg-primary/10 flex items-center justify-center rounded-lg">
       <Icon className="w-7 h-7" />
     </div>
     <div>

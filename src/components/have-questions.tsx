@@ -10,14 +10,14 @@ interface Props {
 const HaveQuestions = ({ className }: Props) => {
   return (
     <div className={cn("", className)}>
-      <div className="bg-primary/5 flex flex-wrap  justify-between gap-3 px-6 flex-col md:flex-row md:px-12 md:items-center  relative rounded-lg  pb-6   pt-14 md:py-14 border border-primary/20">
+      <div className="bg-primary/5 flex flex-wrap  justify-between gap-5  px-6 flex-col md:flex-row md:px-12 md:items-center  relative rounded-lg  pb-6   pt-14 md:py-14 border border-primary/20">
         <div>
-          <h6 className="font-extrabold text-3xl mb-2">Pyetje?</h6>
-          <p className="text-black/50">
+          <h6 className="font-extrabold text-2xl sm:text-3xl mb-2">Pyetje?</h6>
+          <p className="text-black/50 text-sm sm:text-base text-balance">
             Jemi këtu për t'ju ndihmuar për çdo pyetje dhe paqartësi.
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 justify-end">
           <Link
             href="/about"
             className={cn(

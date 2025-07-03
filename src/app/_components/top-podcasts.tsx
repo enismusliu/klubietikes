@@ -23,17 +23,30 @@ const TopPodcasts = async () => {
           <h3 className="font-extrabold text-seconadary text-xl md:text-2xl  ">
             Podcastet tona të fundit
           </h3>
-          <div className="flex items-center justify-end  gap-3 ">
+          <div className=" items-center justify-end  gap-3 hidden sm:flex">
             <CarouselPrevious className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
             <CarouselNext className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
           </div>
         </div>
         <hr className="mb-3 lg:mb-5 bg-primary h-1 rounded-full -mt-4.5 w-20" />
-        <CarouselContent className="py-3">
+        <div className="sm:hidden flex flex-col gap-7">
+          {podcasts.slice(2).map((podcast) => (
+            <Card
+              key={podcast.slug}
+              tags={podcast.tags}
+              title={podcast.title}
+              slug={podcast.slug}
+              module="podcast"
+              coverImagePath={podcast.coverImagePath}
+              date={podcast.recordedAt}
+            />
+          ))}
+        </div>
+        <CarouselContent className="py-3 hidden sm:flex">
           {podcasts.map((podcast) => (
             <CarouselItem
               key={podcast.slug}
-              className="md:basis-1/2 lg:basis-1/3"
+              className="sm:basis-1/2 lg:basis-1/3"
             >
               <Card
                 key={podcast.slug}
