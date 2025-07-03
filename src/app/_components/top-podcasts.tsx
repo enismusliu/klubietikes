@@ -7,6 +7,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const TopPodcasts = async () => {
   const trpc = await getTrpcCaller();
@@ -15,9 +16,10 @@ const TopPodcasts = async () => {
   });
   return (
     <div className="container">
-      <h3 className="text-primary font-extrabold text-xl md:text-2xl mb-4 pb-4 ">
+      <h3 className="text-seconadary border-b font-extrabold text-xl md:text-2xl mb-4 pb-4 ">
         Podcastet tona të fundit
       </h3>
+      <hr className="mb-3 lg:mb-5 bg-primary h-1 rounded-full -mt-4.5 w-20" />
       <Carousel className="w-full " opts={{ align: "start" }}>
         <CarouselContent className="py-3">
           {podcasts.map((podcast) => (
@@ -42,9 +44,9 @@ const TopPodcasts = async () => {
       <div className="flex justify-end mt-5">
         <Link
           href="/activities"
-          className={buttonVariants({ size: "sm", variant: "ghost" })}
+          className={buttonVariants({ size: "sm", variant: "outline" })}
         >
-          Shiko më shumë...
+          Shiko më shumë <ArrowRight />
         </Link>
       </div>
     </div>

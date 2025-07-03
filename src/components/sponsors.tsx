@@ -1,64 +1,69 @@
+import { Marquee } from "./magicui/marque";
+
 export default function Sponsors() {
   const sponsors = [
     {
-      name: "Marblism",
-      url: "https://marblism.com/?utm_source=Fazier",
-      logo: "https://res.cloudinary.com/fazier-development/image/upload/v1748591503/dyc8srakj0zpe5ua3snj.webp",
+      name: "KCSF",
+      url: "https://kcsfoundation.org/",
+      logo: "/images/kcsf.png",
     },
     {
-      name: "Lede",
-      url: "https://thelede.ai?ref=Fazier",
-      logo: "https://res.cloudinary.com/fazier-development/image/upload/v1748591552/lulugm18rk2vhfp2ncue.png",
+      name: "Zyra e Presidentes së Republikës së Kosovës",
+      url: "https://president-ksgov.net/",
+      logo: "images/presidenca-logo.png",
     },
     {
-      name: "Zero to SaaS",
-      url: "https://www.zerotosaascourse.com?ref=Fazier",
-      logo: "https://res.cloudinary.com/fazier-development/image/upload/v1748591596/fhd1erqhcww181nsvch3.png",
+      name: "ORCA",
+      url: "https://orca-ks.org/",
+      logo: "images/orca.png",
     },
     {
-      name: "Aidbase",
-      url: "https://www.aidbase.ai/?utm_source=Fazier&affref=Fazier&affid=4a810c68",
-      logo: "https://res.cloudinary.com/fazier-development/image/upload/v1748591632/rpovb0qfyqq8sixygo4c.png",
+      name: "Ministria e kulturës, rinisë dhe sportit",
+      url: "https://www.mkrs-ks.org/",
+      logo: "images/mkrs.gif",
     },
     {
-      name: "Stimpack",
-      url: "https://stimpack.io?ref=Fazier",
-      logo: "https://res.cloudinary.com/fazier-development/image/upload/v1748591669/z2iedxe5v2ltel4ucypd.png",
+      name: "Linja e Jetës",
+      url: "https://www.facebook.com/Linjaejetes?mibextid=qi2Omg&rdid=XDoRkLsZRQ96eWM3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1GJRv54ksZ%2F%3Fmibextid%3Dqi2Omg#",
+      logo: "images/linja-e-jetes.jpg",
+    },
+    {
+      name: "HEI’25",
+      url: "https://kec-ks.org/en/programet/higher-education-intervention-2025-hei25/",
+      logo: "images/hei25.png",
     },
   ];
 
   return (
-    <section className="pb-20 pt-20 md:pb-32 md:pt-32 container">
-      <div className="text-center space-y-4 pb-8 mx-auto">
-        <h2 className="text-3xl font-bold sm:text-5xl tracking-tight">
-          Our Sponsors
-        </h2>
-        <p className="text-xl text-muted-foreground pt-1">
-          Startups & Corporations sharing our vision at Fazier
-        </p>
-      </div>
+    <section className="container">
+      <div className=" flex w-full  items-center justify-center ">
+        <div className="relative overflow-hidden">
+          <Marquee pauseOnHover className="[--duration:50s]">
+            <div className="flex  items-center   gap-4">
+              {sponsors.map((sponsor, index) => (
+                <a
+                  key={index}
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border px-3 rounded-lg py-1.5 transition-transform duration-300 transform hover:scale-101 flex flex-col items-center justify-center"
+                >
+                  <img
+                    src={sponsor.logo}
+                    alt={`${sponsor.name} Logo`}
+                    width={56}
+                    height={56}
+                    className="mb-2 h-18 w-auto object-contain"
+                  />
+                  <p className="font-semibold text-sm">{sponsor.name} </p>
+                </a>
+              ))}
+            </div>
+          </Marquee>
 
-      <div className="flex flex-col items-center sm:flex-row sm:flex-wrap justify-center gap-8">
-        {sponsors.map((sponsor, index) => (
-          <a
-            key={index}
-            href={sponsor.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-[160px] h-[160px] bg-slate-900 border border-slate-800 rounded-md transition-transform duration-300 transform hover:scale-105 flex flex-col items-center justify-center"
-          >
-            <img
-              src={sponsor.logo}
-              alt={`${sponsor.name} Logo`}
-              width={56}
-              height={56}
-              className="mb-2"
-            />
-            <p className="text-gray-100 font-semibold text-base">
-              {sponsor.name}{" "}
-            </p>
-          </a>
-        ))}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/8 bg-gradient-to-r from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/8 bg-gradient-to-l from-background"></div>
+        </div>
       </div>
     </section>
   );

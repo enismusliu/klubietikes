@@ -10,12 +10,11 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-      <div id="scroll-to" className="pt-10 md:pt-20" />
       <div className="flex flex-col gap-10 pb-10 md:pb-20">
+        <Sponsors />
         <TopProjects />
         <TopActivities />
         <TopPodcasts />
-        {/* <Sponsors /> */}
         <HaveQuestions className="container" />
       </div>
     </div>

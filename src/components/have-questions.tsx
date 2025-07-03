@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { MessageCircleQuestion } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface Props {
   className?: string;
@@ -17,13 +18,21 @@ const HaveQuestions = ({ className }: Props) => {
           </p>
         </div>
         <div className="flex gap-3">
-          <Button
-            variant="outline"
-            className="border-black/30 text-black/80 hover:bg-black/5 bg-white"
+          <Link
+            href="/about"
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "border-black/30 text-black/80 hover:bg-black/5 bg-white"
+            )}
           >
             Rreth nesh
-          </Button>
-          <Button color="secondary">Kontakti</Button>
+          </Link>
+          <Link
+            href="/contact"
+            className={cn(buttonVariants({ color: "secondary" }))}
+          >
+            Kontakti
+          </Link>
         </div>
         <div className=" absolute -top-[15px] left-6 md:left-12 bg-primary rounded-lg p-3">
           <MessageCircleQuestion className="text-white" size={30} />
