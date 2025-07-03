@@ -5,6 +5,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -12,15 +14,21 @@ import { ArrowRight } from "lucide-react";
 const TopPodcasts = async () => {
   const trpc = await getTrpcCaller();
   const { data: podcasts } = await trpc.public.getTopPodcasts({
-    topNumber: "3",
+    topNumber: "5",
   });
   return (
     <div className="container">
-      <h3 className="text-seconadary border-b font-extrabold text-xl md:text-2xl mb-4 pb-4 ">
-        Podcastet tona të fundit
-      </h3>
-      <hr className="mb-3 lg:mb-5 bg-primary h-1 rounded-full -mt-4.5 w-20" />
       <Carousel className="w-full " opts={{ align: "start" }}>
+        <div className="mb-4 pb-4 border-b flex items-center justify-between ">
+          <h3 className="font-extrabold text-seconadary text-xl md:text-2xl  ">
+            Podcastet tona të fundit
+          </h3>
+          <div className="flex items-center justify-end  gap-3 ">
+            <CarouselPrevious className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
+            <CarouselNext className="static translate-x-0 translate-y-0 h-8 w-8 md:w-15 rounded-lg" />
+          </div>
+        </div>
+        <hr className="mb-3 lg:mb-5 bg-primary h-1 rounded-full -mt-4.5 w-20" />
         <CarouselContent className="py-3">
           {podcasts.map((podcast) => (
             <CarouselItem

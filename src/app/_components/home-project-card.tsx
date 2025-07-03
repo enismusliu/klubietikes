@@ -37,7 +37,7 @@ const HomeProjectCard = ({
       </div>
 
       <div className="absolute bottom-4 left-0 w-full p-4">
-        <p className="font-bold max-w-3/4 lg:text-lg mb-2 text-white transition-colors duration-300 ease-out ">
+        <p className="font-bold text-ellipsis-2 lg:max-w-3/4 text-sm sm:text-base lg:text-lg mb-2 text-white transition-colors duration-300 ease-out ">
           {title.charAt(0).toUpperCase() + title.slice(1)}
         </p>
         <div className="flex flex-wrap gap-1.5 text-xs font-semibold">

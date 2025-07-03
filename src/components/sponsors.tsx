@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marque";
 
 export default function Sponsors() {
@@ -32,13 +33,21 @@ export default function Sponsors() {
       url: "https://kec-ks.org/en/programet/higher-education-intervention-2025-hei25/",
       logo: "images/hei25.png",
     },
+    {
+      name: "Mizan Solutions",
+      url: "https://www.mizan-solutions.com/",
+      logo: "images/main-logo.png",
+    },
   ];
 
   return (
     <section className="container">
       <div className=" flex w-full  items-center justify-center ">
         <div className="relative overflow-hidden">
-          <Marquee pauseOnHover className="[--duration:50s]">
+          <Marquee
+            pauseOnHover
+            className="[--duration:20s] lg:[--duration:40s]"
+          >
             <div className="flex  items-center   gap-4">
               {sponsors.map((sponsor, index) => (
                 <a
@@ -53,7 +62,11 @@ export default function Sponsors() {
                     alt={`${sponsor.name} Logo`}
                     width={56}
                     height={56}
-                    className="mb-2 h-18 w-auto object-contain"
+                    className={cn(
+                      "mb-2 h-18 w-auto object-contain",
+                      sponsor.name === "Mizan Solutions" &&
+                        "bg-black/80 p-3 rounded-lg"
+                    )}
                   />
                   <p className="font-semibold text-sm">{sponsor.name} </p>
                 </a>
