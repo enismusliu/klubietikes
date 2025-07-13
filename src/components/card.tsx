@@ -39,7 +39,7 @@ const Card = ({
         )}
         <p
           className={cn(
-            "font-bold text-md text-ellipsis-2 lg:text-lg  mb-1.5 transition-colors duration-300 ease-out group-hover:text-primary",
+            "font-bold text-md text-ellipsis-2 lg:text-lg  mb-1 transition-colors duration-300 ease-out group-hover:text-primary",
             module == "activities" && "group-hover:text-secondary",
             module == "projects" && "group-hover:text-black/70"
           )}
