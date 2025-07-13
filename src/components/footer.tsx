@@ -89,7 +89,7 @@ export default function Footer() {
 
       <hr className="border-white/20 my-4" />
 
-      <div className="flex items-center justify-between container ">
+      <div className="flex items-center justify-between container gap-5">
         <div>
           <div className="flex items-center gap-1.5 mb-3">
             <p>Mundësuar nga:</p>
