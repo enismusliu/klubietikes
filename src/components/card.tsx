@@ -46,7 +46,7 @@ const Card = ({
         >
           {title.charAt(0).toUpperCase() + title.slice(1)}
         </p>
-        <p className="text-ellipsis-1 mb-3 text-foreground font-light">
+        <p className="text-ellipsis-1 mb-3 text-foreground font-light text-sm">
           {description}
         </p>
         <div className="flex flex-row flex-wrap gap-1.5 text-xs font-semibold">
