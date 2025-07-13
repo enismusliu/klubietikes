@@ -10,4 +10,5 @@ export interface PodcastById {
   htmlContentDescription: string;
   tags: string[];
   recordedAt: string;
+  shortDescription: string;
 }

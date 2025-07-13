@@ -8,4 +8,5 @@ export interface TopActivity {
   coverImagePath: string;
   tags: string[];
   finishedAt: string;
+  shortDescription: string;
 }

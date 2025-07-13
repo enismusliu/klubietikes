@@ -10,6 +10,7 @@ const Card = ({
   coverImagePath,
   tags = [],
   module,
+  description,
   date,
 }: {
   slug: string;
@@ -18,6 +19,7 @@ const Card = ({
   tags: string[];
   module: "projects" | "activities" | "podcast";
   date?: string;
+  description: string;
 }) => {
   return (
     <Link
@@ -35,8 +37,17 @@ const Card = ({
         {date && (
           <p className="text-sm mb-1.5  text-black/30">{formatDate(date)}</p>
         )}
-        <p className="font-bold text-md text-ellipsis-2 lg:text-lg  mb-1.5 transition-colors duration-300 ease-out group-hover:text-primary">
+        <p
+          className={cn(
+            "font-bold text-md text-ellipsis-2 lg:text-lg  mb-1.5 transition-colors duration-300 ease-out group-hover:text-primary",
+            module == "activities" && "group-hover:text-secondary",
+            module == "projects" && "group-hover:text-black/70"
+          )}
+        >
           {title.charAt(0).toUpperCase() + title.slice(1)}
+        </p>
+        <p className="text-ellipsis-1 mb-3 text-foreground font-light">
+          {description}
         </p>
         <div className="flex flex-row flex-wrap gap-1.5 text-xs font-semibold">
           {tags.map((tag, index) => (

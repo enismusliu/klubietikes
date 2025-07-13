@@ -15,4 +15,5 @@ export interface TopProject {
     coverImagePath: string;
     tags: string[];
   }[];
+  shortDescription: string;
 }

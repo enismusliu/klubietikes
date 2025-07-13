@@ -83,7 +83,7 @@ const Podcast = async ({ params }: PageParams) => {
           </p>
         </div>
 
-        <ShareLink title={podcast.title}>
+        <ShareLink title={podcast.title} text={podcast.shortDescription}>
           <Button
             variant="ghost"
             size="sm"

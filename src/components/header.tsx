@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { MicVocal } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PulsatingButton } from "./magicui/pulsating-button";
 
 export function Header() {
   const pathname = usePathname();
@@ -45,13 +46,11 @@ export function Header() {
         <NavbarLogo />
         <NavItems items={navItems} />
 
-        <Link
-          onClick={() => setIsMobileMenuOpen(false)}
-          href="/podcast"
-          className={cn(buttonVariants(), "z-10")}
-        >
-          <MicVocal className="text-white" />
-          Podcasts
+        <Link onClick={() => setIsMobileMenuOpen(false)} href="/podcast">
+          <PulsatingButton>
+            <MicVocal className="text-white" size={16} />
+            Podcasts
+          </PulsatingButton>
         </Link>
       </NavBody>
       <MobileNav>
@@ -85,10 +84,7 @@ export function Header() {
           <Link
             onClick={() => setIsMobileMenuOpen(false)}
             href="/podcast"
-            className={cn(
-              buttonVariants({ color: "secondary" }),
-              "min-w-[150px]"
-            )}
+            className={cn(buttonVariants(), "min-w-[150px]")}
           >
             <MicVocal className="text-white " />
             Podcasts

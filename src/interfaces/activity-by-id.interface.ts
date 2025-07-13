@@ -10,4 +10,5 @@ export interface ActivityById {
   htmlContentDescription: string;
   tags: string[];
   finishedAt: string;
+  shortDescription: string;
 }

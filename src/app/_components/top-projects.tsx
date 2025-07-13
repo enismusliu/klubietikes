@@ -60,7 +60,10 @@ const TopProjects = async () => {
       <div className="flex justify-end mt-5">
         <Link
           href="/projects"
-          className={cn(buttonVariants({ size: "sm", variant: "outline" }))}
+          className={cn(
+            buttonVariants({ size: "sm", variant: "outline" }),
+            "border border-black/50 text-black/50 hover:bg-black/5"
+          )}
         >
           Shiko më shumë <ArrowRight />
         </Link>

@@ -14,7 +14,7 @@ const HeroSection = () => {
     }
   };
   return (
-    <GridBackground className="grid md:grid-cols-2 container items-center justify-center gap-10">
+    <GridBackground className="grid md:grid-cols-2 container items-center justify-center gap-10!">
       <div className="flex flex-col h-full justify-center text-center md:text-start">
         <h1 className="text-balance  text-3xl lg:leading-14 font-bold  md:text-4xl lg:text-4xl ">
           {`Ligji na mëson rregullin. Etika na mëson drejtësinë.`
@@ -75,6 +75,7 @@ const HeroSection = () => {
         src="/images/hero-img.jpg"
         alt=""
         className="h-[300px] md:h-[calc(100dvh-60%)] mx-auto object-cover object-left-top rounded-tl-[150px] w-auto"
+        style={{ boxShadow: "8px 8px 0 rgba(0, 0, 0, 0.15)" }}
       />
     </GridBackground>
   );

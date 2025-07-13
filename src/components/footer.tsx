@@ -90,12 +90,24 @@ export default function Footer() {
       <hr className="border-white/20 my-4" />
 
       <div className="flex items-center justify-between container ">
-        <div className="flex text-sm md:items-center justify-center gap-1 font-extralight">
-          <Copyright size={14} />
-          <p>
-            {currentYear} Klubi i Etikës. Të gjitha të drejtat janë të
-            rezervuara
-          </p>
+        <div>
+          <div className="flex items-center gap-1.5 mb-3">
+            <p>Mundësuar nga:</p>
+            <a href="https://www.mizan-solutions.com">
+              <img
+                src="/images/mizan-logo-white.png"
+                alt="Mizan Solutions Logo"
+                className="max-h-5 w-auto object-contain"
+              />
+            </a>
+          </div>
+          <div className="flex text-sm md:items-center justify-center gap-1 font-extralight">
+            <Copyright size={14} />
+            <p>
+              {currentYear} Klubi i Etikës. Të gjitha të drejtat janë të
+              rezervuara
+            </p>
+          </div>
         </div>
         <Button
           onClick={handleNavigationToTheTop}

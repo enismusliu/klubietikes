@@ -48,6 +48,7 @@ const Activities = async ({ searchParams }: PageParams) => {
                   module="activities"
                   coverImagePath={activity.coverImagePath}
                   date={activity.finishedAt}
+                  description={activity.shortDescription}
                 />
               );
             })}

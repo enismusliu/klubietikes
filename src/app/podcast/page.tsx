@@ -48,6 +48,7 @@ const Podcast = async ({ searchParams }: PageParams) => {
                   module={"podcast"}
                   coverImagePath={podcast.coverImagePath}
                   date={podcast.recordedAt}
+                  description={podcast.shortDescription}
                 />
               );
             })}

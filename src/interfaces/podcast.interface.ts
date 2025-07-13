@@ -8,5 +8,6 @@ export interface Podcast {
   coverImagePath: string;
   videoUrl: string;
   tags: string[];
+  shortDescription: string;
   recordedAt: string;
 }

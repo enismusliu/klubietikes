@@ -1,5 +1,6 @@
 import { ActivityById } from "@/interfaces/activity-by-id.interface";
 import { Activity } from "@/interfaces/activity.interface";
+import { Dashboard } from "@/interfaces/dashboard.interface";
 import { PodcastById } from "@/interfaces/podcast-by-id.interface";
 import { Podcast } from "@/interfaces/podcast.interface";
 import { ProjectById } from "@/interfaces/project-by-id.interface";
@@ -111,4 +112,11 @@ export const publicRouter = createTRPCRouter({
       );
       return response;
     }),
+  getDashboard: publicProcedure.query(async () => {
+    const response = await request<Dashboard>("dashboard", {
+      method: "GET",
+      next: { tags: ["dashboard"] },
+    });
+    return response.data;
+  }),
 });

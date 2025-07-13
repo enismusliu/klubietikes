@@ -13,8 +13,8 @@ const Home = () => {
       <div className="flex flex-col gap-10 pb-10 md:pb-20">
         <Sponsors />
         <TopProjects />
-        <TopActivities />
         <TopPodcasts />
+        <TopActivities />
         <HaveQuestions className="container" />
       </div>
     </div>

@@ -74,7 +74,7 @@ const Project = async ({ params }: PageParams) => {
           {project.title}
         </h1>
 
-        <ShareLink title={project.title}>
+        <ShareLink title={project.title} text={project.shortDescription}>
           <Button
             variant="ghost"
             size="sm"
@@ -153,6 +153,7 @@ const Project = async ({ params }: PageParams) => {
                       slug={podcast.activitySlug}
                       module={"activities"}
                       coverImagePath={podcast.coverImagePath}
+                      description={podcast.shortDescription}
                     />
                   </CarouselItem>
                 ))}
@@ -188,6 +189,7 @@ const Project = async ({ params }: PageParams) => {
                       slug={podcast.podcastSlug}
                       module={"podcast"}
                       coverImagePath={podcast.coverImagePath}
+                      description={podcast.shortDescription}
                     />
                   </CarouselItem>
                 ))}

@@ -47,6 +47,7 @@ const Projects = async ({ searchParams }: PageParams) => {
                   slug={project.slug}
                   module={"projects"}
                   coverImagePath={project.coverImagePath}
+                  description={project.shortDescription}
                 />
               );
             })}

@@ -9,4 +9,5 @@ export interface TopPodcast {
   videoUrl: string;
   tags: string[];
   recordedAt: string;
+  shortDescription: string;
 }

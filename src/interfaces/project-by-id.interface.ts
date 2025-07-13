@@ -6,6 +6,7 @@ export interface ProjectById {
   tags: string[];
   podcasts: Podcast[];
   activities: Activity[];
+  shortDescription: string;
 }
 
 export interface Podcast {
@@ -13,6 +14,7 @@ export interface Podcast {
   title: string;
   coverImagePath: string;
   tags: string[];
+  shortDescription: string;
 }
 
 export interface Activity {
@@ -20,4 +22,5 @@ export interface Activity {
   title: string;
   coverImagePath: string;
   tags: string[];
+  shortDescription: string;
 }

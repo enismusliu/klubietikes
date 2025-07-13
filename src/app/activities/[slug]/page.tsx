@@ -74,7 +74,7 @@ const Activity = async ({ params }: PageParams) => {
           </p>
         </div>
 
-        <ShareLink title={activity.title}>
+        <ShareLink title={activity.title} text={activity.shortDescription}>
           <Button
             variant="ghost"
             size="sm"
